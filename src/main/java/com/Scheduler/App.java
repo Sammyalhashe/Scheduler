@@ -16,7 +16,9 @@ import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -67,8 +69,12 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Button openFormButton = new Button("Open Form");
+        openFormButton.setOnAction((ActionEvent event) -> openFormButton.setText("asdf"));
         Label label = new Label("Welcome to Scheduler");
-        Scene scene = new Scene(new StackPane(label), 640, 400);
+        StackPane sp = new StackPane(label);
+        sp.getChildren().add(openFormButton);
+        Scene scene = new Scene(sp, 640, 400);
         primaryStage.setTitle("Scheduler");
         primaryStage.setScene(scene);
         primaryStage.show();
