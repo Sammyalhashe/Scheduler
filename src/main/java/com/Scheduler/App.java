@@ -15,9 +15,14 @@ import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
-import static com.common.Utils.logInfo;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
-public class App {
+
+public class App extends Application {
     Graph<String, DefaultEdge> graph = new DefaultDirectedGraph<>(DefaultEdge.class);
     public String getGreeting() {
         return "Hello world.";
@@ -25,6 +30,7 @@ public class App {
 
 
     public static void main(String[] args) {
+        /*
         System.out.println(new App().getGreeting());
         List<ITask> tasks = new ArrayList<>();
         List<UUID> first = new ArrayList<>();
@@ -53,7 +59,18 @@ public class App {
         tasks.add(fourthTask);
 
         CriticalPath criticalPath = CriticalPath.ofTasks(tasks);
+        */
+        launch();
+
+    }
 
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Label label = new Label("Welcome to Scheduler");
+        Scene scene = new Scene(new StackPane(label), 640, 400);
+        primaryStage.setTitle("Scheduler");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }
